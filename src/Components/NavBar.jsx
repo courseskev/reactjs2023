@@ -5,7 +5,8 @@ import Navbar from "react-bootstrap/Navbar";
 import logo from "../Assets/logoML_2.png";
 import CartWigdet from "./CartWidget";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { LinkContainer, Link } from "react-router-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   return (

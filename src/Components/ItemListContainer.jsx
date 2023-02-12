@@ -32,11 +32,9 @@ const ItemListContainer = () => {
 
   return (
     <>
-      <Center bg="#D6EAF8" h="100px" color="black">
-        <Heading as="h2" size="2xl">
-          Products by Category
-        </Heading>
-      </Center>
+      <div bg="#D6EAF8" h="100px" color="black">
+        <h2>Products by Category</h2>
+      </div>
       {category ? (
         <ItemList products={catFilter} />
       ) : (
