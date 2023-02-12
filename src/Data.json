@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "title": "Celular iPhone",
+        "description": "iPhone 13 pro max",
+        "price": 2500000,
+        "pictureUrl": "./Assets/products/iphone14.jpg",
+        "stock": 3,
+        "Category": "celulares"
+    },
+    {
+        "id": 2,
+        "title": "Lenovo thinkpad",
+        "description": "Lenovo XR213 i7 16GB NVIDIA 6GB",
+        "price": 8500000,
+        "pictureUrl": "./Assets/products/lenovo.jpg",
+        "stock": 3,
+        "Category": "computadores"
+    },
+    {
+        "id": 3,
+        "title": "Celular iPhone 14",
+        "description": "iPhone 14 pro max",
+        "price": 7500000,
+        "pictureUrl": "./Assets/products/iphone14.jpg",
+        "stock": 5,
+        "Category": "celulares"
+    },
+    {
+        "id": 4,
+        "title": "Macbook",
+        "description": "macbook last generation with M2 and 16GB at memory",
+        "price": 12500000,
+        "pictureUrl": "./Assets/products/macbook.jpeg",
+        "stock": 3,
+        "Category": "computadores"
+    }
+]
