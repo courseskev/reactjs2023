@@ -1,7 +1,7 @@
 import ItemDetail from "./ItemDetail";
 import { useState } from "react";
 import Data from "../Data.json";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
@@ -13,7 +13,7 @@ const ItemDetailContainer = () => {
         reject(new Error("No hay datos"));
       }
       setTimeout(() => {
-        const bikeFilter = Data.filter((bike) => bike.id == id);
+        const bikeFilter = Data.filter((bike) => bike.id === id);
         resolve(bikeFilter);
       }, 2000);
     });

@@ -1,13 +1,14 @@
 import { useParams } from "react-router-dom";
 import ItemCount from "./ItemCount";
 import { Card, Button } from "react-bootstrap";
+import { Fragment } from "react";
 
 const ItemDetail = ({ products }) => {
   const { id } = useParams();
 
   const productFilter = products.filter((product) => product.id === id);
   return (
-    <>
+    <Fragment>
       {productFilter.map((product) => (
         <div key={product.id}>
           <div>
@@ -28,7 +29,7 @@ const ItemDetail = ({ products }) => {
           </div>
         </div>
       ))}
-    </>
+    </Fragment>
   );
 };
 

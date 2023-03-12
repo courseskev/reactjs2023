@@ -7,10 +7,11 @@ import CartWigdet from "./CartWidget";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
+import { Fragment } from "react";
 
 function NavBar() {
   return (
-    <>
+    <Fragment>
       <Navbar bg="dark" variant="dark">
         <Container>
           <LinkContainer to="/">
@@ -24,12 +25,26 @@ function NavBar() {
           </LinkContainer>
 
           <NavDropdown title="Tecnología" id="nav-dropdown">
-            <NavDropdown.Item tag={Link} to={`/category/${"celulares"}`}>
-              Celulares
+            <NavDropdown.Item>
+              <LinkContainer to={`/domain_id/${"MCO-CELLPHONES"}`}>
+                <Nav.Link>Celulares</Nav.Link>
+              </LinkContainer>
             </NavDropdown.Item>
+
             <NavDropdown.Divider />
-            <NavDropdown.Item tag={Link} to={`/category/${"computadores"}`}>
-              Computadores
+
+            <NavDropdown.Item>
+              <LinkContainer to={`/domain_id/${"MCO-NOTEBOOKS"}`}>
+                <Nav.Link>Computadores</Nav.Link>
+              </LinkContainer>
+            </NavDropdown.Item>
+
+            <NavDropdown.Divider />
+
+            <NavDropdown.Item>
+              <LinkContainer to={`/domain_id/${"MCO-HEADPHONES"}`}>
+                <Nav.Link>Audifonos</Nav.Link>
+              </LinkContainer>
             </NavDropdown.Item>
           </NavDropdown>
 
@@ -37,7 +52,7 @@ function NavBar() {
           {"0"}
         </Container>
       </Navbar>
-    </>
+    </Fragment>
   );
 }
 

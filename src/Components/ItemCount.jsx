@@ -3,6 +3,7 @@ import { FaMinus, FaPlus } from "react-icons/fa";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { textAlign } from "@mui/system";
+import { Fragment } from "react";
 
 const ItemCount = ({ stock }) => {
   const [count, setCount] = useState(1);
@@ -16,7 +17,7 @@ const ItemCount = ({ stock }) => {
   };
 
   return (
-    <>
+    <Fragment>
       <ButtonGroup size="sm" isAttached variant="outline">
         {count < 1 ? (
           <Button>
@@ -38,7 +39,7 @@ const ItemCount = ({ stock }) => {
           </Button>
         )}
       </ButtonGroup>
-    </>
+    </Fragment>
   );
 };
 

@@ -1,46 +1,57 @@
-import React, { useState, useEffect, useParams } from "react";
+import React, { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
 import Data from "../Data.json";
-import { Heading, Center } from "react-bootstrap";
+import { Fragment, useState, useEffect } from "react";
 
 const ItemListContainer = () => {
-  const { category } = useParams();
+  const { domain_id } = useParams();
 
-  const getDatos = () => {
-    return new Promise((resolve, reject) => {
-      if (Data.length === 0) {
-        reject(new Error("No hay datos"));
-      }
-      setTimeout(() => {
-        resolve(Data);
-      }, 2000);
-    });
-  };
+  const [headphones, setHeadphones] = useState([]);
+  const [computers, setComputers] = useState([]);
+  const [smartphones, setSmartphones] = useState([]);
 
-  async function fetchingData() {
-    try {
-      const datosFetched = await getDatos();
-      console.log(datosFetched);
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  useEffect(() => {
+    fetch("https://api.mercadolibre.com/sites/MCO/search?q=notebook&limit=10")
+      .then((res) => res.json())
+      .then((data) => setComputers(data.results))
+      .catch((err) => console.error(err));
+  }, []);
 
-  fetchingData();
+  useEffect(() => {
+    fetch(
+      "https://api.mercadolibre.com/sites/MCO/search?q=smartphones&limit=10"
+    )
+      .then((res) => res.json())
+      .then((data) => setSmartphones(data.results))
+      .catch((err) => console.error(err));
+  }, []);
 
-  const catFilter = Data.filter((product) => product.category === category);
+  useEffect(() => {
+    fetch("https://api.mercadolibre.com/sites/MCO/search?q=headphones&limit=10")
+      .then((res) => res.json())
+      .then((data) => setHeadphones(data.results))
+      .catch((err) => console.error(err));
+  }, []);
+
+  const fullData = [...headphones, ...computers, ...smartphones];
+
+  console.log(fullData);
+
+  const catFilter = fullData.filter(
+    (product) => product.domain_id === domain_id
+  );
 
   return (
-    <>
-      <div bg="#D6EAF8" h="100px" color="black">
+    <Fragment>
+      <div>
         <h2>Products by Category</h2>
       </div>
-      {category ? (
+      {domain_id ? (
         <ItemList products={catFilter} />
       ) : (
-        <ItemList products={Data} />
+        <ItemList products={fullData} />
       )}
-    </>
+    </Fragment>
   );
 };
 
